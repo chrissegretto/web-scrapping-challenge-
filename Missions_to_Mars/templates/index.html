@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars scrapping</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+     
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+    </div>
+    <div class="row">
+    <div class="col - md - 12">
+    <h1> Latest Mars News </h1> 
+    </div>
+    </div>
+    <div class="row">
+    <div class="col - md - 12">
+    <h3>Latest Mars Title: {{ mars.Title }}</h3>
+    <p>Mars paragraph: {{ mars.Paragraph }}</p>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col - md - 8">
+  <h1>Featured Mars Image</h1> 
+  <img src="{{mars.Image}}" alt="Featured Mars Image" class="rounded float-left">
+  </div>
+  <div class="col - md - 4">
+  <h2>Mars Facts</h2>  
+  <table class = "table table-striped">{{mars.Table | safe}}</table>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col - md - 8 offset - 4">
+  <h3 class = "align-items-center">Mars Hemisphere</h3>
+  </div>
+  </div>
+  <div class="row">
+    {% for marsh in mars.Hem %}
+    <div class="col - md - 6">
+    <div><img src="{{marsh.Image}}" alt="mars.Hemisphere"> 
+    </div>  
+    <div>
+      <h4 style="text-align: center;">{{mars.Title}}</h4>
+    </div>
+  </div> 
+{% endfor %}
+</div>
+</div>
+</body>
+
+</html>
